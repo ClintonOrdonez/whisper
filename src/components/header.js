@@ -20,7 +20,9 @@ const Header = props => (
           Secrets
         </NavLink>
         <NavLink activeClassName="active" className="nav-link" to="/cart">
-          Cart{" "}
+          <span role="img" aria-label="cart">
+            🛒
+          </span>{" "}
           <span className="badge badge-primary">
             {props.total > 0 ? props.total : ""}
           </span>
