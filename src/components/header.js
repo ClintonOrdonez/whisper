@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 
 const mapStateToProps = state => {
   return {
-    total: state.cart.length
+    total: state.cart.length,
+    username: state.username,
+    token: state.token
   };
 };
 
@@ -27,6 +29,16 @@ const Header = props => (
             {props.total > 0 ? props.total : ""}
           </span>
         </NavLink>
+        {props.token === null && (
+          <NavLink activeClassName="active" className="nav-link" to="/login">
+            Login
+          </NavLink>
+        )}
+        {props.token && (
+          <NavLink activeClassName="active" className="nav-link" to="/logout">
+            Logout {props.username}
+          </NavLink>
+        )}
       </nav>
     </div>
   </header>

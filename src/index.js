@@ -2,7 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
-import { Home, Create, Shop, Cart, Header } from "./components";
+import {
+  Home,
+  Create,
+  Shop,
+  Cart,
+  Header,
+  Edit,
+  Login,
+  Logout,
+  ProtectedRoute
+} from "./components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -25,8 +35,12 @@ const App = props => (
               <Route exact path="/" component={Home} />
               <Route path="/secrets" component={Shop} />
               <Route path="/cart" component={Cart} />
-              <Route path="/create" component={Create} />
+              <ProtectedRoute path="/create" component={Create} />
+              <ProtectedRoute path="/edit" component={Edit} />
+              <Route path="/login" component={Login} />
+              <Route path="/logout" component={Logout} />
               <Route
+                path
                 render={() => (
                   <div>
                     Page Not Found

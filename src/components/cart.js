@@ -26,7 +26,7 @@ const Cart = props => (
       >
         <span>{s.title}</span>
         <div className="d-flex justify-content-between">
-          <span>${s.price}</span>
+          <span style={{ marginRight: 20 }}>${s.price}</span>
           <button
             className="btn btn-secondary"
             onClick={() => props.onRemoveItem(s.cartId)}
